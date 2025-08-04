@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         
-        let navigationController = UINavigationController(rootViewController: UIViewController())
+        let navigationController = UINavigationController(rootViewController: SplashViewController())
         
-        navigationController.navigationBar.backgroundColor = .red
+        //navigationController.navigationBar.backgroundColor = .red
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         
