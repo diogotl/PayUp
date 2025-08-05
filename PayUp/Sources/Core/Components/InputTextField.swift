@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-<<<<<<< HEAD
 enum InputTextFieldType {
     case normal
     case cellphone
@@ -17,27 +16,24 @@ enum InputTextFieldType {
 
 final class InputTextField: UIView {
     
-=======
-final class InputTextField: UIView {
-    
-    
->>>>>>> 931726b949d704f5e350e78c03994a5336f3169a
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
+        label.font = Typography.labelMedium()
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     
     private let textField: UITextField = {
         let textField = UITextField()
-<<<<<<< HEAD
         textField.backgroundColor = .gray
         textField.textColor = .black
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 0))
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.leftViewMode = .always
         return textField
     }()
@@ -50,6 +46,7 @@ final class InputTextField: UIView {
         type: InputTextFieldType = .normal
     ) {
         self.type = type
+        titleLabel.text = title
         super.init(frame: .zero)
         setupView(placeholder: placeholder)
     }
@@ -62,10 +59,10 @@ final class InputTextField: UIView {
         addSubview(titleLabel)
         addSubview(textField)
         setupConstraints()
-        
     }
     
     private func setupConstraints() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -80,6 +77,7 @@ final class InputTextField: UIView {
     }
     
     private func setupTextFieldPlaceholder(placeholder: String) {
+        titleLabel.text = placeholder
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [
@@ -130,10 +128,4 @@ final class InputTextField: UIView {
         }
         return result
     }
-    
-=======
-        textField.back
-        return textField
-    }()
->>>>>>> 931726b949d704f5e350e78c03994a5336f3169a
 }
