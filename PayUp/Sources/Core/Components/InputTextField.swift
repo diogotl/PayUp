@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+<<<<<<< HEAD
 enum InputTextFieldType {
     case normal
     case cellphone
@@ -16,6 +17,11 @@ enum InputTextFieldType {
 
 final class InputTextField: UIView {
     
+=======
+final class InputTextField: UIView {
+    
+    
+>>>>>>> 931726b949d704f5e350e78c03994a5336f3169a
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -25,6 +31,7 @@ final class InputTextField: UIView {
     
     private let textField: UITextField = {
         let textField = UITextField()
+<<<<<<< HEAD
         textField.backgroundColor = .gray
         textField.textColor = .black
         textField.layer.cornerRadius = 8
@@ -124,4 +131,9 @@ final class InputTextField: UIView {
         return result
     }
     
+=======
+        textField.back
+        return textField
+    }()
+>>>>>>> 931726b949d704f5e350e78c03994a5336f3169a
 }
