@@ -43,9 +43,15 @@ final class SplashView: UIView{
         backgroundColor = .black
         addSubview(triangleImageView)
         addSubview(logoImageView)
+        addSubview(example)
         setupConstraints()
     }
     
+    private let example = InputTextField(
+        title: "Example",
+        placeholder: "aoisdjiasj i jio jio ji"
+    )
+   
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             triangleImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -56,7 +62,11 @@ final class SplashView: UIView{
             logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
-            logoImageView.heightAnchor.constraint(equalToConstant: 100)
+            logoImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            example.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            example.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            example.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
         ])
     }
 }
