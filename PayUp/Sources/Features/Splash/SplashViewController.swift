@@ -23,11 +23,11 @@ final class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(contentView)
         setup()
     }
     
     private func setup(){
-        self.view = contentView
         startAnimation()
         setupConstraints()
     }

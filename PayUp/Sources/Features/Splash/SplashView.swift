@@ -1,34 +1,29 @@
-//
-//  SplashView.swift
-//  PayUp
-//
-//  Created by Diogo on 04/08/2025.
-//
-
 import Foundation
 import UIKit
 
-final class SplashView: UIView{
+final class SplashView: UIView {
     
     let triangleImageView: UIImageView = {
         let imageView = UIImageView(
-            image: UIImage(named: "backgroundImage") ?? UIImage(systemName: "triangle.fill")
+            image: UIImage(named: "backgroundImage")
         )
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.alpha = 0
         return imageView
     }()
     
     let logoImageView: UIImageView = {
         let imageView = UIImageView(
-            image: UIImage(named: "logo") ?? UIImage(systemName: "logo.fill")
+            image: UIImage(named: "logo")
         )
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.alpha = 0
         return imageView
     }()
+    
+    private let authentication  = AuthenticationCard()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,16 +37,11 @@ final class SplashView: UIView{
     private func setupView() {
         backgroundColor = .black
         addSubview(triangleImageView)
+        addSubview(authentication)
         addSubview(logoImageView)
-        addSubview(example)
         setupConstraints()
     }
     
-    private let example = InputTextField(
-        title: "Example",
-        placeholder: "aoisdjiasj i jio jio ji"
-    )
-   
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             triangleImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -59,14 +49,15 @@ final class SplashView: UIView{
             triangleImageView.topAnchor.constraint(equalTo: topAnchor),
             triangleImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
+            authentication.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            authentication.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            authentication.centerYAnchor.constraint(equalTo: centerYAnchor),
+            authentication.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
+        
             logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
-            
-            example.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            example.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            example.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
         ])
     }
 }
