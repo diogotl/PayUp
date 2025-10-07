@@ -50,6 +50,12 @@ final class HomeView: UIView {
         return avatar
     }()
     
+    let daySelectorView: DaySelectorView = {
+        let view = DaySelectorView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     
     init(){
         super.init(frame: .zero)
@@ -65,6 +71,7 @@ final class HomeView: UIView {
         header.addSubview(logo)
         header.addSubview(bellButton)
         header.addSubview(avatar)
+        self.addSubview(daySelectorView)
         
         setupConstraints()
     }
@@ -89,7 +96,12 @@ final class HomeView: UIView {
             avatar.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -16),
             avatar.centerYAnchor.constraint(equalTo: header.centerYAnchor),
             avatar.widthAnchor.constraint(equalToConstant: 40),
-            avatar.heightAnchor.constraint(equalToConstant: 40)
+            avatar.heightAnchor.constraint(equalToConstant: 40),
+            
+            daySelectorView.topAnchor.constraint(equalTo: header.bottomAnchor),
+            daySelectorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            daySelectorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            daySelectorView.heightAnchor.constraint(equalToConstant: 60)
             
         ])
     }
