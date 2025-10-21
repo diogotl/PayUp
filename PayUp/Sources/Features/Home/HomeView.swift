@@ -56,6 +56,8 @@ final class HomeView: UIView {
         return view
     }()
     
+    let paymentCardView: PaymentCardView
+    
     
     init(){
         super.init(frame: .zero)
